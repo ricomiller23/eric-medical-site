@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric J. Miller - Multiple Myeloma Medical Portal</title>
+    <meta name="description" content="Personal medical portal for tracking Multiple Myeloma treatment and education">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- Particle Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <header class="sticky-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon"><i class="fas fa-dna"></i></div>
+                <div class="logo-text">
+                    <h1>Eric J. Miller Myeloma Portal</h1>
+                    <p>DOB: 07/22/1967 | MR#: 3329796 | Dx: 11/07/2025</p>
+                </div>
+            </div>
+            <div class="controls" style="display:flex;gap:0.5rem;">
+                <button onclick="toggleDarkMode()" class="nav-btn"><i class="fas fa-moon"></i></button>
+                <button onclick="window.print()" class="nav-btn"><i class="fas fa-print"></i></button>
+                <button onclick="adjustFontSize('increase')" class="nav-btn"><i class="fas fa-plus"></i></button>
+                <button onclick="adjustFontSize('decrease')" class="nav-btn"><i class="fas fa-minus"></i></button>
+            </div>
+        </div>
+        <nav style="max-width:1400px;margin:1rem auto 0;padding:0 2rem;">
+            <button onclick="scrollToSection('dashboard')" class="nav-btn active"><i class="fas fa-home"></i>
+                Dashboard</button>
+            <button onclick="scrollToSection('diagnostics')" class="nav-btn"><i class="fas fa-microscope"></i>
+                Diagnostics</button>
+            <button onclick="scrollToSection('treatment')" class="nav-btn"><i class="fas fa-pills"></i>
+                Treatment</button>
+            <button onclick="scrollToSection('prognosis')" class="nav-btn"><i class="fas fa-chart-line"></i>
+                Prognosis</button>
+            <button onclick="scrollToSection('resources')" class="nav-btn"><i class="fas fa-book-medical"></i>
+                Resources</button>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <!-- Dashboard Section -->
+        <section id="dashboard">
+            <div class="hero-section">
+                <h2>Eric J. Miller</h2>
+                <p class="subtitle">High-Risk Smoldering Multiple Myeloma</p>
+                <div
+                    style="display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1.5rem;color:rgba(255,255,255,0.8);">
+                    <span><strong>Diagnosed:</strong> November 7, 2025</span>
+                    <span><strong>Age:</strong> 57</span>
+                </div>
+                <span class="status-badge"><i class="fas fa-heartbeat"></i> Active Treatment</span>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="stats-grid">
+                <div class="glass-card stat-card">
+                    <div class="stat-icon"><i class="fas fa-dna"></i></div>
+                    <span class="high-risk">HIGH-RISK</span>
+                    <h3>Cytogenetics</h3>
+                    <p>1q21 gain (4 copies)</p>
+                    <p>TP53 abnormal (3 copies)</p>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon"><i class="fas fa-syringe"></i></div>
+                    <span class="status">ACTIVE</span>
+                    <h3>Treatment</h3>
+                    <p>Daratumumab</p>
+                    <p>Started: 12/21/2025</p>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
+                    <span class="status">EXCELLENT</span>
+                    <h3>Day 5 Response</h3>
+                    <p>WBC: 9.4 ✓</p>
+                    <p>Hgb: 16.4 ✓</p>
+                </div>
+                <div class="glass-card stat-card">
+                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
+                    <span style="color:#f97316;font-weight:600;">UPCOMING</span>
+                    <h3>Timeline</h3>
+                    <p>Week 4 Labs: Jan 18</p>
+                    <p>Week 12: April 2026</p>
+                </div>
+            </div>
+
+            <!-- DNA Visualization -->
+            <div class="glass-card dna-container">
+                <h3><i class="fas fa-dna"></i> Genetic Profile Visualization</h3>
+                <p style="color:rgba(255,255,255,0.7);margin-bottom:1rem;">Interactive DNA showing your genetic markers
+                    - highlighted regions indicate abnormalities</p>
+                <canvas id="dna-helix"></canvas>
+            </div>
+
+            <!-- Chromosome Visualization -->
+            <div class="glass-card" style="padding:2rem;margin-bottom:3rem;">
+                <h3 style="color:white;margin-bottom:1.5rem;"><i class="fas fa-microscope"></i> 1q21 Chromosome
+                    Amplification (YOUR RESULT)</h3>
+                <div class="chromosome-viz">
+                    <div style="text-align:center;">
+                        <p style="color:white;margin-bottom:0.5rem;">Normal (2 copies)</p>
+                        <div style="display:flex;gap:0.5rem;">
+                            <div class="chromosome-box">
+                                <div class="probe-dot" style="background:#ef4444;color:#ef4444;"></div>
+                            </div>
+                            <div class="chromosome-box">
+                                <div class="probe-dot" style="background:#ef4444;color:#ef4444;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size:2rem;color:white;">→</div>
+                    <div style="text-align:center;">
+                        <p style="color:#ef4444;font-weight:700;margin-bottom:0.5rem;">YOUR RESULT (4 copies)</p>
+                        <div style="display:flex;gap:0.5rem;">
+                            <div class="chromosome-box">
+                                <div class="probe-dot" style="background:#ef4444;color:#ef4444;"></div>
+                            </div>
+                            <div class="chromosome-box">
+                                <div class="probe-dot" style="background:#ef4444;color:#ef4444;"></div>
+                            </div>
+                            <div class="chromosome-box">
+                                <div class="probe-dot" style="background:#ef4444;color:#ef4444;"></div>
+                            </div>
+                            <div class="chromosome-box">
+                                <div class="probe-dot" style="background:#ef4444;color:#ef4444;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Timeline -->
+            <div class="glass-card timeline">
+                <h3><i class="fas fa-history"></i> Medical Timeline</h3>
+                <div class="timeline-item">
+                    <div class="date">December 26, 2025</div>
+                    <div class="event">Day 5 CBC Results: Excellent Response ✓</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">December 21, 2025</div>
+                    <div class="event">First Daratumumab Infusion Completed</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">November 26, 2025</div>
+                    <div class="event">FISH Results: High-Risk Cytogenetics (1q21 gain, TP53 abnormal)</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">November 7, 2025</div>
+                    <div class="event">Bone Marrow Biopsy: 8-10% Kappa-Restricted Plasma Cells</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">November 7, 2025</div>
+                    <div class="event">Diagnosis: High-Risk Smoldering Multiple Myeloma</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagnostics Section -->
+        <section id="diagnostics" style="margin-bottom:3rem;">
+            <h2 style="color:white;font-size:2rem;margin-bottom:2rem;"><i class="fas fa-microscope"></i> Diagnostic
+                Results</h2>
+
+            <div class="glass-card" style="padding:2rem;">
+                <div style="display:flex;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap;">
+                    <button class="nav-btn diagnostics-btn active" onclick="switchTab('bone-marrow')">Bone
+                        Marrow</button>
+                    <button class="nav-btn diagnostics-btn" onclick="switchTab('fish')">FISH Panel</button>
+                    <button class="nav-btn diagnostics-btn" onclick="switchTab('baseline-labs')">Baseline Labs</button>
+                    <button class="nav-btn diagnostics-btn" onclick="switchTab('day5')">Day-5 Response</button>
+                </div>
+
+                <div id="bone-marrow" class="diagnostics-tab active">
+                    <h3 style="color:white;margin-bottom:1rem;">Bone Marrow Pathology Report</h3>
+                    <p style="color:rgba(255,255,255,0.7);margin-bottom:1.5rem;">Date: 11/07/2025 | Pathologist: Dr. Amy
+                        Lynn Jencks, DO</p>
+                    <div
+                        style="background:rgba(59,130,246,0.2);border-left:4px solid #3b82f6;padding:1rem;border-radius:8px;margin-bottom:1.5rem;">
+                        <h4 style="color:#60a5fa;margin-bottom:0.5rem;">DIAGNOSIS: Plasma Cell Neoplasm</h4>
+                        <ul style="color:rgba(255,255,255,0.8);list-style:none;">
+                            <li>✓ 8-10% kappa-restricted plasma cells</li>
+                            <li>✓ CD56+ (aberrant marker)</li>
+                            <li>✓ Focal cyclin D1+ (10% of plasma cells)</li>
+                        </ul>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Marker</th>
+                                    <th>Expression</th>
+                                    <th>Percentage</th>
+                                    <th>Significance</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>CD138</td>
+                                    <td style="color:#10b981;">Positive</td>
+                                    <td>8-10%</td>
+                                    <td>Plasma cell marker</td>
+                                </tr>
+                                <tr>
+                                    <td>CD38</td>
+                                    <td style="color:#10b981;">Bright Positive</td>
+                                    <td>9%</td>
+                                    <td>Target for Daratumumab</td>
+                                </tr>
+                                <tr>
+                                    <td>CD56</td>
+                                    <td style="color:#ef4444;">Positive (Aberrant)</td>
+                                    <td>9%</td>
+                                    <td>High-risk marker</td>
+                                </tr>
+                                <tr>
+                                    <td>Kappa</td>
+                                    <td style="color:#10b981;">Restricted</td>
+                                    <td>7%</td>
+                                    <td>Monoclonal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="fish" class="diagnostics-tab" style="display:none;">
+                    <h3 style="color:white;margin-bottom:1rem;">🧬 FISH Panel Results</h3>
+                    <div
+                        style="background:rgba(239,68,68,0.2);border-left:4px solid #ef4444;padding:1rem;border-radius:8px;margin-bottom:1.5rem;">
+                        <h4 style="color:#ef4444;">⚠️ HIGH-RISK CYTOGENETICS DETECTED</h4>
+                        <p style="color:rgba(255,255,255,0.8);">Multiple high-risk abnormalities requiring intensified
+                            therapy (D-RVd recommended)</p>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Probe</th>
+                                    <th>Result</th>
+                                    <th>% Cells</th>
+                                    <th>Risk Level</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="background:rgba(239,68,68,0.1);">
+                                    <td>🔴 1q21</td>
+                                    <td><strong>4 copies</strong></td>
+                                    <td>19.0%</td>
+                                    <td style="color:#ef4444;font-weight:700;">HIGH</td>
+                                </tr>
+                                <tr style="background:rgba(239,68,68,0.1);">
+                                    <td>🟢 TP53/17p13</td>
+                                    <td><strong>3 copies</strong></td>
+                                    <td>24.0%</td>
+                                    <td style="color:#ef4444;font-weight:700;">ULTRA-HIGH</td>
+                                </tr>
+                                <tr>
+                                    <td>🔵 CEP7</td>
+                                    <td>Trisomy</td>
+                                    <td>21.0%</td>
+                                    <td style="color:#f59e0b;">Intermediate</td>
+                                </tr>
+                                <tr style="background:rgba(16,185,129,0.1);">
+                                    <td>⬜ t(4;14)</td>
+                                    <td>Not detected</td>
+                                    <td>—</td>
+                                    <td style="color:#10b981;">Favorable</td>
+                                </tr>
+                                <tr style="background:rgba(16,185,129,0.1);">
+                                    <td>⬜ t(14;16)</td>
+                                    <td>Not detected</td>
+                                    <td>—</td>
+                                    <td style="color:#10b981;">Favorable</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="baseline-labs" class="diagnostics-tab" style="display:none;">
+                    <h3 style="color:white;margin-bottom:1rem;">Baseline Laboratory Values</h3>
+                    <div style="margin-bottom:1.5rem;">
+                        <p style="color:white;margin-bottom:0.5rem;">Free Kappa: <strong>655.69 mg/L</strong> <span
+                                style="color:#ef4444;">(33× ULN)</span></p>
+                        <div style="height:20px;background:rgba(255,255,255,0.1);border-radius:10px;overflow:hidden;">
+                            <div style="width:100%;height:100%;background:linear-gradient(90deg,#ef4444,#f97316);">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Test</th>
+                                    <th>Value</th>
+                                    <th>Reference</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Free Kappa</td>
+                                    <td><strong>655.69 mg/L</strong></td>
+                                    <td>0.33-1.94</td>
+                                    <td style="color:#ef4444;">🔴 Critical</td>
+                                </tr>
+                                <tr>
+                                    <td>κ/λ Ratio</td>
+                                    <td><strong>52.41</strong></td>
+                                    <td>0.26-1.65</td>
+                                    <td style="color:#ef4444;">🔴 Critical</td>
+                                </tr>
+                                <tr>
+                                    <td>Hemoglobin</td>
+                                    <td>14.2 g/dL</td>
+                                    <td>13.5-17.0</td>
+                                    <td style="color:#10b981;">🟢 Normal</td>
+                                </tr>
+                                <tr>
+                                    <td>Creatinine</td>
+                                    <td>1.1 mg/dL</td>
+                                    <td>0.7-1.3</td>
+                                    <td style="color:#10b981;">🟢 Normal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div id="day5" class="diagnostics-tab" style="display:none;">
+                    <h3 style="color:white;margin-bottom:1rem;">Day-5 Post-Daratumumab Response</h3>
+                    <div
+                        style="background:linear-gradient(135deg,#10b981,#059669);padding:1.5rem;border-radius:12px;margin-bottom:1.5rem;">
+                        <h4 style="color:white;font-size:1.5rem;"><i class="fas fa-check-circle"></i> ✅ EXCELLENT
+                            RESPONSE</h4>
+                        <p style="color:rgba(255,255,255,0.9);">All blood counts within normal range with no
+                            myelosuppression</p>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                    <th>Reference</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>WBC</td>
+                                    <td><strong>9.4 K/μL</strong></td>
+                                    <td>4.0-11.0</td>
+                                    <td style="color:#10b981;">✅ Normal</td>
+                                </tr>
+                                <tr>
+                                    <td>Hemoglobin</td>
+                                    <td><strong>16.4 g/dL</strong></td>
+                                    <td>13.5-17.0</td>
+                                    <td style="color:#10b981;">✅ Normal</td>
+                                </tr>
+                                <tr>
+                                    <td>Platelets</td>
+                                    <td><strong>293 K/μL</strong></td>
+                                    <td>130-450</td>
+                                    <td style="color:#10b981;">✅ Normal</td>
+                                </tr>
+                                <tr>
+                                    <td>ANC</td>
+                                    <td><strong>5.3 K/μL</strong></td>
+                                    <td>1.5-7.8</td>
+                                    <td style="color:#10b981;">✅ Normal</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatment Section -->
+        <section id="treatment" style="margin-bottom:3rem;">
+            <h2 style="color:white;font-size:2rem;margin-bottom:2rem;"><i class="fas fa-pills"></i> Treatment Plan</h2>
+
+            <!-- Treatment Pathway -->
+            <div class="glass-card" style="padding:2rem;margin-bottom:2rem;">
+                <h3 style="color:white;margin-bottom:1.5rem;">Treatment Roadmap</h3>
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
+                    <div style="text-align:center;">
+                        <div
+                            style="width:60px;height:60px;background:#10b981;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;margin:0 auto 0.5rem;">
+                            ✓</div>
+                        <p style="color:white;font-weight:600;">12/21/25</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.875rem;">Dara Start</p>
+                    </div>
+                    <div style="flex:1;height:4px;background:linear-gradient(90deg,#10b981,#0d9488);border-radius:2px;">
+                    </div>
+                    <div style="text-align:center;">
+                        <div
+                            style="width:60px;height:60px;background:linear-gradient(135deg,#0d9488,#1e40af);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;margin:0 auto 0.5rem;animation:pulse-glow 2s infinite;">
+                            NOW</div>
+                        <p style="color:white;font-weight:600;">Day 5</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.875rem;">Excellent Response</p>
+                    </div>
+                    <div style="flex:1;height:4px;background:rgba(255,255,255,0.2);border-radius:2px;"></div>
+                    <div style="text-align:center;">
+                        <div
+                            style="width:60px;height:60px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;margin:0 auto 0.5rem;">
+                            12</div>
+                        <p style="color:white;font-weight:600;">Week 12</p>
+                        <p style="color:rgba(255,255,255,0.7);font-size:0.875rem;">April 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- D-RVd Accordions -->
+            <div class="accordion">
+                <div class="accordion-header"
+                    onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+                    <span><i class="fas fa-syringe" style="margin-right:0.75rem;"></i>💉 DARATUMUMAB (Darzalex) -
+                        Anti-CD38 Monoclonal Antibody</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body glass-card">
+                        <p><strong>Mechanism:</strong> Binds CD38 on myeloma cells, triggering immune-mediated cell
+                            death (CDC, ADCC, ADCP)</p>
+                        <p style="margin-top:1rem;"><strong>How It Addresses YOUR 1q21 Gain:</strong> Direct killing
+                            independent of genetic abnormalities. Immune-mediated attack overwhelms Mcl-1
+                            overexpression.</p>
+                        <p style="margin-top:1rem;"><strong>How It Addresses YOUR TP53:</strong> Immune killing doesn't
+                            require p53 function.</p>
+                        <div style="background:rgba(16,185,129,0.2);padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p><strong>Clinical Data:</strong> D-RVd achieves 54.8% MRD-negative (vs 32.4% RVd alone)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-header"
+                    onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+                    <span><i class="fas fa-pills" style="margin-right:0.75rem;"></i>💊 LENALIDOMIDE (Revlimid) -
+                        Cereblon E3 Ligase Modulator</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body glass-card">
+                        <p><strong>Mechanism:</strong> "Molecular Glue" - Forms CRL4^CRBN E3 ligase, recruits
+                            IKZF1/IKZF3 for degradation</p>
+                        <p style="margin-top:1rem;"><strong>How It Addresses YOUR 1q21:</strong> IKZF1/3 degradation
+                            suppresses CKS1B & MCL1 expression</p>
+                        <p style="margin-top:1rem;"><strong>Synergy with Daratumumab:</strong> Enhances ADCC through NK
+                            cell activation</p>
+                    </div>
+                </div>
+
+                <div class="accordion-header"
+                    onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+                    <span><i class="fas fa-vial" style="margin-right:0.75rem;"></i>💉 BORTEZOMIB (Velcade) - Proteasome
+                        Inhibitor</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body glass-card">
+                        <p><strong>Why ESSENTIAL for YOUR Disease:</strong></p>
+                        <ul style="margin-top:0.5rem;margin-left:1.5rem;">
+                            <li>MCL1 on 1q21 is amplified → Bortezomib's NOXA specifically counteracts this</li>
+                            <li>TP53 stabilization → Even with 3 copies, can trigger apoptosis</li>
+                        </ul>
+                        <div style="background:rgba(245,158,11,0.2);padding:1rem;border-radius:8px;margin-top:1rem;">
+                            <p><strong>⚠️ Side Effect Alert:</strong> Peripheral Neuropathy (40-60% risk)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-header"
+                    onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open');">
+                    <span><i class="fas fa-tablets" style="margin-right:0.75rem;"></i>💊 DEXAMETHASONE - Synthetic
+                        Glucocorticoid</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <div class="accordion-body glass-card">
+                        <p><strong>Mechanism:</strong> NF-κB transrepression → Direct apoptosis</p>
+                        <p style="margin-top:1rem;"><strong>Why It Matters for YOUR 1q21:</strong> NF-κB is
+                            constitutively activated by 1q21 genes. Dexamethasone directly blocks this.</p>
+                        <p style="margin-top:1rem;"><strong>Dosing:</strong> 40 mg PO weekly</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drug Synergy Visualization -->
+            <div class="glass-card"
+                style="padding:2rem;background:linear-gradient(135deg,#667eea,#764ba2);text-align:center;">
+                <h3 style="color:white;margin-bottom:1.5rem;">How D-RVd Attacks YOUR Myeloma From 4 Angles</h3>
+                <div style="display:inline-block;background:rgba(255,255,255,0.15);border-radius:16px;padding:2rem;">
+                    <p style="color:white;font-weight:700;margin-bottom:0.5rem;">YOUR MYELOMA CELL</p>
+                    <p style="color:rgba(255,255,255,0.7);font-size:0.875rem;margin-bottom:1rem;">(1q21 gain + TP53
+                        abnormality)</p>
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;">
+                        <div
+                            style="background:rgba(255,255,255,0.2);padding:0.75rem;border-radius:8px;color:white;font-size:0.875rem;">
+                            DARATUMUMAB<br /><span style="font-size:0.75rem;">(CD38 kill)</span></div>
+                        <div
+                            style="background:rgba(255,255,255,0.2);padding:0.75rem;border-radius:8px;color:white;font-size:0.875rem;">
+                            LENALIDOMIDE<br /><span style="font-size:0.75rem;">(CRBN degrade)</span></div>
+                        <div
+                            style="background:rgba(255,255,255,0.2);padding:0.75rem;border-radius:8px;color:white;font-size:0.875rem;">
+                            BORTEZOMIB<br /><span style="font-size:0.75rem;">(Proteasome block)</span></div>
+                        <div
+                            style="background:rgba(255,255,255,0.2);padding:0.75rem;border-radius:8px;color:white;font-size:0.875rem;">
+                            DEXAMETHASONE<br /><span style="font-size:0.75rem;">(NF-κB block)</span></div>
+                    </div>
+                    <p style="color:white;font-size:1.5rem;margin:1rem 0;">↓</p>
+                    <p style="color:white;font-weight:700;font-size:1.25rem;">CELL DEATH</p>
+                </div>
+                <p style="color:rgba(255,255,255,0.9);margin-top:1.5rem;font-weight:600;">EXPECTED OUTCOME: 50-55%
+                    MRD-negative rate in high-risk patients</p>
+            </div>
+        </section>
+
+        <!-- Prognosis Section -->
+        <section id="prognosis" style="margin-bottom:3rem;">
+            <h2 style="color:white;font-size:2rem;margin-bottom:2rem;"><i class="fas fa-chart-line"></i> Prognosis &
+                Life Expectancy</h2>
+
+            <!-- Survival Scenarios -->
+            <div class="glass-card" style="padding:2rem;margin-bottom:2rem;">
+                <h3 style="color:white;margin-bottom:1.5rem;">Personalized Survival Scenarios</h3>
+
+                <div class="treatment-grid">
+                    <div class="glass-card treatment-card" style="border-left:4px solid #10b981;">
+                        <h4 style="color:#10b981;"><i class="fas fa-star"></i> Scenario A: MRD-NEGATIVE</h4>
+                        <p style="color:white;font-weight:600;">Median Survival: 15-25+ years</p>
+                        <p style="color:rgba(255,255,255,0.7);margin-top:0.5rem;">5-year: 90% | 10-year: 45%</p>
+                        <div
+                            style="height:8px;background:rgba(255,255,255,0.1);border-radius:4px;margin-top:1rem;overflow:hidden;">
+                            <div style="width:80%;height:100%;background:linear-gradient(90deg,#10b981,#059669);"></div>
+                        </div>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin-top:0.5rem;">50% probability</p>
+                    </div>
+
+                    <div class="glass-card treatment-card" style="border-left:4px solid #f59e0b;">
+                        <h4 style="color:#f59e0b;"><i class="fas fa-chart-line"></i> Scenario B: MRD-POSITIVE</h4>
+                        <p style="color:white;font-weight:600;">Median Survival: 8-15 years</p>
+                        <p style="color:rgba(255,255,255,0.7);margin-top:0.5rem;">5-year: 65% | 10-year: 35%</p>
+                        <div
+                            style="height:8px;background:rgba(255,255,255,0.1);border-radius:4px;margin-top:1rem;overflow:hidden;">
+                            <div style="width:60%;height:100%;background:linear-gradient(90deg,#f59e0b,#d97706);"></div>
+                        </div>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin-top:0.5rem;">35% probability</p>
+                    </div>
+
+                    <div class="glass-card treatment-card" style="border-left:4px solid #ef4444;">
+                        <h4 style="color:#ef4444;"><i class="fas fa-exclamation-triangle"></i> Scenario C: REFRACTORY
+                        </h4>
+                        <p style="color:white;font-weight:600;">Median Survival: 5-8 years</p>
+                        <p style="color:rgba(255,255,255,0.7);margin-top:0.5rem;">5-year: 45% | 10-year: 20%</p>
+                        <div
+                            style="height:8px;background:rgba(255,255,255,0.1);border-radius:4px;margin-top:1rem;overflow:hidden;">
+                            <div style="width:40%;height:100%;background:linear-gradient(90deg,#ef4444,#dc2626);"></div>
+                        </div>
+                        <p style="color:rgba(255,255,255,0.6);font-size:0.75rem;margin-top:0.5rem;">15% probability</p>
+                    </div>
+                </div>
+
+                <div
+                    style="background:linear-gradient(135deg,#667eea,#764ba2);padding:1.5rem;border-radius:12px;margin-top:2rem;">
+                    <h4 style="color:white;margin-bottom:0.5rem;">INTEGRATED ESTIMATE FOR YOU:</h4>
+                    <p style="color:white;font-size:1.25rem;"><strong>Most likely survival:</strong> 12-18 years (to age
+                        69-75)</p>
+                    <p style="color:rgba(255,255,255,0.9);margin-top:0.5rem;">With MRD-negative response, 20-25% chance
+                        of living 20-25+ years.</p>
+                </div>
+            </div>
+
+            <!-- Quality of Life Chart -->
+            <div class="glass-card chart-container">
+                <h3><i class="fas fa-heart"></i> Quality of Life Trajectory</h3>
+                <div style="height:400px;"><canvas id="qolChart"></canvas></div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources">
+            <h2 style="color:white;font-size:2rem;margin-bottom:2rem;"><i class="fas fa-book-medical"></i> Resources
+            </h2>
+
+            <div class="treatment-grid">
+                <div class="glass-card treatment-card">
+                    <h4><i class="fas fa-clipboard-list"></i> Appointment Tools</h4>
+                    <ul>
+                        <li>Pocket Appointment Guide</li>
+                        <li>Full Discussion Outline</li>
+                        <li>Lab Tracker Spreadsheet</li>
+                        <li>Question Checklist</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card treatment-card">
+                    <h4><i class="fas fa-external-link-alt"></i> External Resources</h4>
+                    <ul>
+                        <li><a href="https://clinicaltrials.gov" target="_blank"
+                                style="color:#60a5fa;">ClinicalTrials.gov</a></li>
+                        <li><a href="https://myelomacrowd.org" target="_blank" style="color:#60a5fa;">Myeloma Crowd</a>
+                        </li>
+                        <li><a href="https://www.myeloma.org" target="_blank" style="color:#60a5fa;">IMF Foundation</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="glass-card treatment-card">
+                    <h4><i class="fas fa-hospital"></i> Expert Centers</h4>
+                    <ul>
+                        <li><a href="https://www.mayoclinic.org" target="_blank" style="color:#60a5fa;">Mayo Clinic</a>
+                        </li>
+                        <li><a href="https://www.dana-farber.org" target="_blank" style="color:#60a5fa;">Dana-Farber</a>
+                        </li>
+                        <li><a href="https://www.mskcc.org" target="_blank" style="color:#60a5fa;">Memorial Sloan
+                                Kettering</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <h4><i class="fas fa-hospital"></i> Contact Information</h4>
+                <p>Ironwood Cancer Center</p>
+                <p>(480) 323-1339</p>
+                <p>Dr. Rakesh Bagai, MD</p>
+            </div>
+            <div>
+                <h4><i class="fas fa-calendar-alt"></i> Important Dates</h4>
+                <p>Diagnosis: November 7, 2025</p>
+                <p>Treatment Start: December 21, 2025</p>
+                <p>Week 4 Labs: January 18, 2026</p>
+            </div>
+            <div>
+                <h4><i class="fas fa-info-circle"></i> Disclaimer</h4>
+                <p>This site is for personal medical record organization only. Always consult your physician for medical
+                    decisions.</p>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1);">
+            <p style="color:rgba(255,255,255,0.7);">© 2026 Eric J. Miller Medical Portal | Last Updated: 01 Jan 2026</p>
+        </div>
+    </footer>
+
+    <script src="js/animations.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
