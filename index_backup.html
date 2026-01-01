@@ -213,7 +213,7 @@
             background: rgba(30, 58, 138, 0.02);
         }
         
-        @media print {
+         {
             .no-print {
                 display: none !important;
             }
@@ -286,520 +286,9 @@
             border-color: var(--primary);
             box-shadow: 0 4px 12px rgba(30, 58, 138, 0.1);
         }
-    
-        
-        /* ===== UX IMPROVEMENTS ===== */
-        
-        /* Focus states for keyboard navigation */
-        a:focus, button:focus, input:focus, select:focus {
-            outline: 3px solid var(--secondary);
-            outline-offset: 2px;
-        }
-        
-        /* Smooth scrolling for entire page */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Better link states */
-        a {
-            transition: color 0.2s ease, opacity 0.2s ease;
-        }
-        
-        a:hover {
-            opacity: 0.8;
-        }
-        
-        /* Active navigation indicator */
-        .tab-button.active {
-            position: relative;
-        }
-        
-        .tab-button.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 3px 3px 0 0;
-        }
-        
-        /* Scroll indicator for sections */
-        section {
-            scroll-margin-top: 140px;
-        }
-        
-        /* Better button feedback */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease;
-        }
-        
-        .btn-primary:active::after {
-            width: 200px;
-            height: 200px;
-        }
-        
-        /* Loading state for canvases */
-        canvas {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-        }
-        
-        /* Better accordion UX */
-        .accordion-header {
-            position: relative;
-            padding-right: 40px;
-        }
-        
-        .accordion-header .fa-chevron-down {
-            transition: transform 0.3s ease;
-        }
-        
-        .accordion-content.open + .accordion-header .fa-chevron-down,
-        .accordion-header.open .fa-chevron-down {
-            transform: rotate(180deg);
-        }
-        
-        /* Progress indicator styling */
-        .progress-bar {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: progressShimmer 2s infinite;
-        }
-        
-        @keyframes progressShimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* Table row hover for better scanning */
-        tr {
-            transition: background-color 0.2s ease;
-        }
-        
-        tr:hover {
-            background: rgba(30, 58, 138, 0.03) !important;
-        }
-        
-        /* Better touch targets for mobile */
-        @media (max-width: 768px) {
-            .tab-button, .btn-primary, .accordion-header {
-                min-height: 44px;
-            }
-            
-            button, a {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-        
-        /* Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            html {
-                scroll-behavior: auto;
-            }
-        }
-        
-        /* Print improvements */
-        @media print {
-            .no-print, #particles-canvas, canvas {
-                display: none !important;
-            }
-            
-            .card {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #e5e7eb;
-            }
-            
-            section {
-                break-before: page;
-            }
-            
-            a {
-                text-decoration: underline;
-            }
-            
-            a[href^="http"]::after {
-                content: " (" attr(href) ")";
-                font-size: 0.8em;
-                color: #666;
-            }
-        }
-        
-        /* Tooltip improvements */
-        .tooltip .tooltiptext {
-            font-size: 13px;
-            line-height: 1.4;
-            max-width: 280px;
-        }
-        
-        /* Loading skeleton for charts */
-        .chart-container::before {
-            content: 'Loading chart...';
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.9);
-            color: #9ca3af;
-            font-size: 14px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .chart-container:empty::before {
-            opacity: 1;
-        }
-
-
-        
-        /* ===== UX IMPROVEMENTS ===== */
-        
-        /* Focus states for keyboard navigation */
-        a:focus, button:focus, input:focus, select:focus {
-            outline: 3px solid var(--secondary);
-            outline-offset: 2px;
-        }
-        
-        /* Smooth scrolling for entire page */
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        /* Better link states */
-        a {
-            transition: color 0.2s ease, opacity 0.2s ease;
-        }
-        
-        a:hover {
-            opacity: 0.8;
-        }
-        
-        /* Active navigation indicator */
-        .tab-button.active {
-            position: relative;
-        }
-        
-        .tab-button.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: var(--primary);
-            border-radius: 3px 3px 0 0;
-        }
-        
-        /* Scroll indicator for sections */
-        section {
-            scroll-margin-top: 140px;
-        }
-        
-        /* Better button feedback */
-        .btn-primary {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .btn-primary::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            background: rgba(255,255,255,0.3);
-            border-radius: 50%;
-            transform: translate(-50%, -50%);
-            transition: width 0.3s ease, height 0.3s ease;
-        }
-        
-        .btn-primary:active::after {
-            width: 200px;
-            height: 200px;
-        }
-        
-        /* Loading state for canvases */
-        canvas {
-            background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
-        }
-        
-        /* Better accordion UX */
-        .accordion-header {
-            position: relative;
-            padding-right: 40px;
-        }
-        
-        .accordion-header .fa-chevron-down {
-            transition: transform 0.3s ease;
-        }
-        
-        .accordion-content.open + .accordion-header .fa-chevron-down,
-        .accordion-header.open .fa-chevron-down {
-            transform: rotate(180deg);
-        }
-        
-        /* Progress indicator styling */
-        .progress-bar {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: progressShimmer 2s infinite;
-        }
-        
-        @keyframes progressShimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-        
-        /* Table row hover for better scanning */
-        tr {
-            transition: background-color 0.2s ease;
-        }
-        
-        tr:hover {
-            background: rgba(30, 58, 138, 0.03) !important;
-        }
-        
-        /* Better touch targets for mobile */
-        @media (max-width: 768px) {
-            .tab-button, .btn-primary, .accordion-header {
-                min-height: 44px;
-            }
-            
-            button, a {
-                min-height: 44px;
-                min-width: 44px;
-            }
-        }
-        
-        /* Reduce motion for users who prefer it */
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
-            
-            html {
-                scroll-behavior: auto;
-            }
-        }
-        
-        /* Print improvements */
-        @media print {
-            .no-print, #particles-canvas, canvas {
-                display: none !important;
-            }
-            
-            .card {
-                break-inside: avoid;
-                box-shadow: none;
-                border: 1px solid #e5e7eb;
-            }
-            
-            section {
-                break-before: page;
-            }
-            
-            a {
-                text-decoration: underline;
-            }
-            
-            a[href^="http"]::after {
-                content: " (" attr(href) ")";
-                font-size: 0.8em;
-                color: #666;
-            }
-        }
-        
-        /* Tooltip improvements */
-        .tooltip .tooltiptext {
-            font-size: 13px;
-            line-height: 1.4;
-            max-width: 280px;
-        }
-        
-        /* Loading skeleton for charts */
-        .chart-container::before {
-            content: 'Loading chart...';
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255,255,255,0.9);
-            color: #9ca3af;
-            font-size: 14px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .chart-container:empty::before {
-            opacity: 1;
-        }
-
-
-        /* Animation Enhancements */
-        .chromosome-animated {
-            animation: chromosomeFloat 3s ease-in-out infinite;
-        }
-        
-        .probe-animated {
-            animation: probePulse 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes chromosomeFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(3deg); }
-        }
-        
-        @keyframes probePulse {
-            0%, 100% { 
-                transform: translate(-50%, -50%) scale(1); 
-                box-shadow: 0 0 10px currentColor; 
-            }
-            50% { 
-                transform: translate(-50%, -50%) scale(1.3); 
-                box-shadow: 0 0 25px currentColor, 0 0 40px currentColor; 
-            }
-        }
-        
-        .card {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* Gradient text for headings */
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        /* Pulsing high-risk badge */
-        .high-risk {
-            animation: highRiskPulse 2s ease-in-out infinite;
-        }
-        
-        @keyframes highRiskPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-        
-        /* Smooth tab transitions */
-        .tab-content {
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-        
-        .tab-content:not(.active) {
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
     </style>
 </head>
 <body>
-<!-- Particle Background -->
-
-<!-- Skip to main content link for accessibility -->
-<a href="#dashboard" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
-<style>
-    .skip-link:focus {
-        position: fixed !important;
-        top: 10px;
-        left: 10px;
-        width: auto !important;
-        height: auto !important;
-        padding: 15px 25px;
-        background: var(--primary);
-        color: white;
-        z-index: 9999;
-        border-radius: 8px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-</style>
-
-
-<!-- Skip to main content link for accessibility -->
-<a href="#dashboard" class="skip-link" style="position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a>
-<style>
-    .skip-link:focus {
-        position: fixed !important;
-        top: 10px;
-        left: 10px;
-        width: auto !important;
-        height: auto !important;
-        padding: 15px 25px;
-        background: var(--primary);
-        color: white;
-        z-index: 9999;
-        border-radius: 8px;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-</style>
-
-<canvas id="particles-canvas" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;pointer-events:none;"></canvas>
-
 
 <!-- Sticky Header -->
 <header class="sticky-header">
@@ -813,16 +302,16 @@
                 </div>
             </div>
             <div class="flex items-center space-x-4 no-print">
-                <button onclick="toggleDarkMode()" class="p-2 rounded hover:bg-gray-100" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <button onclick="toggleDarkMode()" class="p-2 rounded hover:bg-gray-100">
                     <i class="fas fa-moon"></i>
                 </button>
-                <button onclick="window.print()" class="p-2 rounded hover:bg-gray-100" aria-label="Print page" title="Print this page">
+                <button onclick="window.print()" class="p-2 rounded hover:bg-gray-100">
                     <i class="fas fa-print"></i>
                 </button>
-                <button onclick="adjustFontSize('increase')" class="p-2 rounded hover:bg-gray-100" aria-label="Increase font size" title="Increase font size">
+                <button onclick="adjustFontSize('increase')" class="p-2 rounded hover:bg-gray-100">
                     <i class="fas fa-plus"></i>
                 </button>
-                <button onclick="adjustFontSize('decrease')" class="p-2 rounded hover:bg-gray-100" aria-label="Decrease font size" title="Decrease font size">
+                <button onclick="adjustFontSize('decrease')" class="p-2 rounded hover:bg-gray-100">
                     <i class="fas fa-minus"></i>
                 </button>
             </div>
@@ -850,7 +339,7 @@
 </header>
 
 <!-- Main Content -->
-<main role="main" class="container mx-auto px-4 py-8">
+<main class="container mx-auto px-4 py-8">
 
     <!-- Dashboard Section -->
     <section id="dashboard" class="mb-12">
@@ -916,17 +405,7 @@
             </div>
         </div>
 
-        
-        <!-- Interactive DNA Visualization -->
-        <div class="card p-6 mb-8">
-            <h3 class="text-xl font-bold mb-4" style="color: var(--primary);"><i class="fas fa-dna mr-2"></i>🧬 Your Genetic Profile - Interactive Visualization</h3>
-            <p class="text-gray-600 mb-4">This animated DNA helix highlights your genetic abnormalities. The highlighted regions show where your 1q21 gain and TP53 abnormality are located.</p>
-            <div id="dna-container" style="background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%); border-radius: 12px; padding: 20px;">
-                <canvas id="dna-helix" style="width: 100%; height: 200px;"></canvas>
-            </div>
-        </div>
-
-<!-- Navigation Tiles -->
+        <!-- Navigation Tiles -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
             <div class="card p-6 cursor-pointer" onclick="scrollToSection('diagnostics')">
                 <div class="flex items-center mb-4">
@@ -1506,18 +985,6 @@
         <!-- Treatment Timeline -->
         <div class="card p-8 mb-8">
             <h3 class="text-2xl font-bold mb-6">Treatment Roadmap</h3>
-
-            <div class="mb-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-info-circle mr-2" style="color: var(--secondary);"></i>
-                <span>Your current position in the treatment journey is highlighted. Click phases for more details.</span>
-            </div>
-
-
-            <div class="mb-4 flex items-center text-sm text-gray-600">
-                <i class="fas fa-info-circle mr-2" style="color: var(--secondary);"></i>
-                <span>Your current position in the treatment journey is highlighted. Click phases for more details.</span>
-            </div>
-
             <div class="relative">
                 <div class="flex items-center justify-between mb-8 flex-wrap">
                     <div class="text-center flex-1 min-w-[150px] mb-4">
@@ -1586,14 +1053,7 @@
                     </div>
                     <div id="dara-accordion" class="accordion-content">
                         <div class="p-6 bg-white rounded-lg">
-                            
-                            <h4 class="font-bold mb-3"><i class="fas fa-flask mr-2"></i>How It's Made - Interactive Animation:</h4>
-                            <div style="background: #f8fafc; border-radius: 12px; padding: 20px; margin-bottom: 20px;">
-                                <canvas id="cho-cell-animation" style="width: 100%; height: 320px;"></canvas>
-                            </div>
-                            
-                            <h4 class="font-bold mb-3">Manufacturing Process:</h4>
-
+                            <h4 class="font-bold mb-3">How It's Made:</h4>
                             <ul class="mb-4 space-y-1">
                                 <li>• Produced in CHO (Chinese Hamster Ovary) cells</li>
                                 <li>• Recombinant DNA technology</li>
@@ -1781,17 +1241,7 @@
                 </div>
             </div>
             
-            
-            <!-- Interactive Drug Mechanism Animation -->
-            <div class="card p-6 mb-6">
-                <h4 class="text-xl font-bold mb-4" style="color: var(--primary);"><i class="fas fa-crosshairs mr-2"></i>Watch How Daratumumab Attacks Your Cancer</h4>
-                <p class="text-gray-600 mb-4">This animation shows how antibodies bind to CD38 receptors on your myeloma cells and trigger cell death.</p>
-                <div style="background: #f8fafc; border-radius: 12px; padding: 20px;">
-                    <canvas id="drug-mechanism-animation" style="width: 100%; height: 350px;"></canvas>
-                </div>
-            </div>
-
-<!-- Synergy Diagram -->
+            <!-- Synergy Diagram -->
             <div class="mt-8 card p-6" style="background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); color: white;">
                 <h4 class="text-xl font-bold mb-4 text-center">How D-RVd Attacks YOUR Myeloma From 4 Angles</h4>
                 <div class="text-center">
@@ -2139,8 +1589,8 @@
                 <i class="fas fa-clipboard-list text-4xl mb-4" style="color: var(--primary);"></i>
                 <h3 class="font-bold text-lg mb-3">Appointment Tools</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="eric_miller_pocket_appointment_guide.pdf" target="_blank" class="text-blue-600 hover:underline">📄 Pocket Appointment Guide (1-page)</a></li>
-                    <li><a href="eric_miller_intensified_therapy_complete_guide.pdf" target="_blank" class="text-blue-600 hover:underline">📄 Full Discussion Outline / Intensified Therapy Guide</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">📄 Pocket Appointment Guide (1-page)</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">📄 Full Discussion Outline (8-page)</a></li>
                     <li><a href="#" class="text-blue-600 hover:underline">📄 Lab Tracker Spreadsheet</a></li>
                     <li><a href="#" class="text-blue-600 hover:underline">📄 Question Checklist</a></li>
                 </ul>
@@ -2151,10 +1601,10 @@
                 <i class="fas fa-file-medical text-4xl mb-4" style="color: var(--primary);"></i>
                 <h3 class="font-bold text-lg mb-3">Diagnostic Reports</h3>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="eric_miller_fish_visualization.pdf" target="_blank" class="text-blue-600 hover:underline">📄 FISH Visual Report</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">📄 FISH Visual Report</a></li>
                     <li><a href="#" class="text-blue-600 hover:underline">📄 Bone Marrow Pathology</a></li>
                     <li><a href="#" class="text-blue-600 hover:underline">📄 Baseline Labs</a></li>
-                    <li><a href="IgG Kappa Monoclonal Gammopathy Diagnostic Analysis.pdf" target="_blank" class="text-blue-600 hover:underline">📄 Complete Diagnostic Analysis</a></li>
+                    <li><a href="#" class="text-blue-600 hover:underline">📄 Complete Cytogenetics</a></li>
                 </ul>
             </div>
             
@@ -2179,6 +1629,18 @@
                     <li><a href="https://myelomacrowd.org" target="_blank" class="text-blue-600 hover:underline">🔗 Myeloma Crowd</a></li>
                     <li><a href="https://www.myeloma.org" target="_blank" class="text-blue-600 hover:underline">🔗 IMF (Int'l Myeloma Foundation)</a></li>
                     <li><a href="https://www.patientadvocate.org" target="_blank" class="text-blue-600 hover:underline">🔗 Patient Advocate Foundation</a></li>
+                </ul>
+            </div>
+            
+            <!-- Expert Centers -->
+            <div class="card p-6">
+                <i class="fas fa-hospital text-4xl mb-4" style="color: var(--primary);"></i>
+                <h3 class="font-bold text-lg mb-3">Expert Centers</h3>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="https://www.mayoclinic.org" target="_blank" class="text-blue-600 hover:underline">🏥 Mayo Clinic</a></li>
+                    <li><a href="https://www.dana-farber.org" target="_blank" class="text-blue-600 hover:underline">🏥 Dana-Farber Cancer Institute</a></li>
+                    <li><a href="https://www.ucsf.edu" target="_blank" class="text-blue-600 hover:underline">🏥 UCSF Medical Center</a></li>
+                    <li><a href="https://www.mskcc.org" target="_blank" class="text-blue-600 hover:underline">🏥 Memorial Sloan Kettering</a></li>
                 </ul>
             </div>
             
@@ -2397,11 +1859,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 </script>
 
-
-<script src="js/animations.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"9b72358f0a70b6a4","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.9.1","token":"4edd5f8ec12a48cfa682ab8261b80a79"}' crossorigin="anonymous"></script>
 </body>
 </html>
+    <script id="html_badge_script1">
+        window.__genspark_remove_badge_link = "https://www.genspark.ai/api/html_badge/" +
+            "remove_badge?token=To%2FBnjzloZ3UfQdcSaYfDvI2YwZgB7h81GpAVk4YLsxwxbIL5RmKlEg84REMW5OtD1LQkvDGWMk24v8n0TJQ3siXeAIhbuK9nvkbF%2Fvy%2FWA10gfAjspDMrh%2BbVhtQc4Ip%2FoMUadRD5fRkleG%2B8VzXLnSXNsQSpSsNMP93KtfIr0JkO7JAfPeNKm%2BailOiglfIByKYaImlZ%2FhUUqXkBH9IXTtzlXQIaWzUG3nUFvy1OuwjPL0EfgK9Y4BxeLfy7Ni3CWe920oemNHmo1%2BfhDyC1fKrFaZO9%2F4QdmqDvluZUT8%2BbCKC%2B7BA9W65xo0fsRPYQNsvZY32IsWHyTWWa7sKEWyv5SatYA8xKJ00mp39Vahb6jMppTVUqrHgzLFPh6q5fpaNB8lpvDfW2u4jAXWTeAUTOfC13i9PL44%2BBdiBiNs4DL2WqZAQSdYwo0FwCnVAZQcRcemkLMtZbSclh2qipERJ%2BMpBTY0vJISl0QMfz%2BTiJ7pRr%2B1y3%2BwRsich1ZTzQhm1bCrHsi6iBxwreayQm6a4FBUuWHxS3PieomP8NJnk9WlfP%2FLV2HtloP%2BIo4hYzjrSzP2wvKnwUxG1HHR%2FdHGtzyR3H8fHnJ2O3qSYXAcK4lBOn2dU82uewyJEFHU";
+        window.__genspark_locale = "en-US";
+        window.__genspark_token = "To/BnjzloZ3UfQdcSaYfDvI2YwZgB7h81GpAVk4YLsxwxbIL5RmKlEg84REMW5OtD1LQkvDGWMk24v8n0TJQ3siXeAIhbuK9nvkbF/vy/WA10gfAjspDMrh+bVhtQc4Ip/oMUadRD5fRkleG+8VzXLnSXNsQSpSsNMP93KtfIr0JkO7JAfPeNKm+ailOiglfIByKYaImlZ/hUUqXkBH9IXTtzlXQIaWzUG3nUFvy1OuwjPL0EfgK9Y4BxeLfy7Ni3CWe920oemNHmo1+fhDyC1fKrFaZO9/4QdmqDvluZUT8+bCKC+7BA9W65xo0fsRPYQNsvZY32IsWHyTWWa7sKEWyv5SatYA8xKJ00mp39Vahb6jMppTVUqrHgzLFPh6q5fpaNB8lpvDfW2u4jAXWTeAUTOfC13i9PL44+BdiBiNs4DL2WqZAQSdYwo0FwCnVAZQcRcemkLMtZbSclh2qipERJ+MpBTY0vJISl0QMfz+TiJ7pRr+1y3+wRsich1ZTzQhm1bCrHsi6iBxwreayQm6a4FBUuWHxS3PieomP8NJnk9WlfP/LV2HtloP+Io4hYzjrSzP2wvKnwUxG1HHR/dHGtzyR3H8fHnJ2O3qSYXAcK4lBOn2dU82uewyJEFHU";
+    </script>
     
-    
-    
+    <script id="html_notice_dialog_script" src="https://www.genspark.ai/notice_dialog.js"></script>
     
