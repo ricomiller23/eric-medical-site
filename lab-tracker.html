@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric J. Miller - Lab Tracker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #1E3A8A;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #1E3A8A;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .normal {
+            color: #10B981;
+            font-weight: bold;
+        }
+
+        .high {
+            color: #EF4444;
+            font-weight: bold;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .print-btn {
+            background: #1E3A8A;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>🧪 Eric J. Miller - Lab Tracker</h1>
+        <button class="print-btn no-print" onclick="window.print()">Print / Save PDF</button>
+    </div>
+
+    <p><strong>Diagnosis:</strong> High-Risk Smoldering Multiple Myeloma | <strong>Treatment Start:</strong> December
+        21, 2025</p>
+
+    <h2>Complete Blood Count (CBC) Trends</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>WBC<br>(4.0-11.0)</th>
+                <th>Hemoglobin<br>(13.5-17.0)</th>
+                <th>Platelets<br>(130-450)</th>
+                <th>ANC<br>(1.5-7.8)</th>
+                <th>ALC<br>(0.9-3.9)</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>01/02/2026</strong><br>Week 2</td>
+                <td class="normal">7.2</td>
+                <td class="normal">15.3</td>
+                <td class="normal">203</td>
+                <td class="normal">4.1</td>
+                <td class="normal">2.3</td>
+                <td>✅ All normal - excellent response continues</td>
+            </tr>
+            <tr>
+                <td><strong>12/26/2025</strong><br>Day 5</td>
+                <td class="normal">9.4</td>
+                <td class="normal">16.4</td>
+                <td class="normal">293</td>
+                <td class="normal">5.3</td>
+                <td class="normal">3.1</td>
+                <td>✅ Excellent initial response</td>
+            </tr>
+            <tr>
+                <td><strong>11/07/2025</strong><br>Baseline</td>
+                <td class="normal">7.8</td>
+                <td class="normal">14.2</td>
+                <td class="normal">245</td>
+                <td>—</td>
+                <td>—</td>
+                <td>Pre-treatment baseline</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Disease Markers</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Free Kappa<br>(0.33-1.94)</th>
+                <th>κ/λ Ratio<br>(0.26-1.65)</th>
+                <th>M-Spike</th>
+                <th>% Change</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>11/07/2025</strong><br>Baseline</td>
+                <td class="high">655.69 mg/L</td>
+                <td class="high">52.41</td>
+                <td class="high">1.07 g/dL</td>
+                <td>—</td>
+            </tr>
+            <tr>
+                <td colspan="5" style="text-align:center; color:#6b7280;">
+                    <em>Next disease marker check: Week 4 (January 18, 2026)</em>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Upcoming Labs Schedule</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Tests</th>
+                <th>Goal</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Jan 18, 2026</strong><br>Week 4</td>
+                <td>Free Kappa, M-spike, CBC, CMP</td>
+                <td>≥50% reduction in Free Kappa</td>
+            </tr>
+            <tr>
+                <td><strong>April 2026</strong><br>Week 12</td>
+                <td>MRD Test, Bone Marrow Biopsy</td>
+                <td>MRD-negative at 10⁻⁵</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <hr>
+    <p style="font-size: 12px; color: #6b7280;">
+        Last Updated: January 6, 2026 |
+        <a href="index.html">Back to Portal</a>
+    </p>
+</body>
+
+</html>

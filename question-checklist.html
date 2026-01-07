@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric J. Miller - Appointment Question Checklist</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            padding: 20px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1,
+        h2 {
+            color: #1E3A8A;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .print-btn {
+            background: #1E3A8A;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px;
+            margin: 8px 0;
+            background: #f9fafb;
+            border-radius: 8px;
+            border-left: 4px solid #1E3A8A;
+        }
+
+        .checklist li::before {
+            content: "☐ ";
+            font-size: 1.2em;
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .note {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .values {
+            background: #ecfdf5;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>📋 Appointment Question Checklist</h1>
+        <button class="print-btn no-print" onclick="window.print()">Print</button>
+    </div>
+
+    <p><strong>Patient:</strong> Eric J. Miller | <strong>Next Appointment:</strong> Week 4 Labs (Jan 18, 2026)</p>
+
+    <div class="values">
+        <h3>Your Current Values (as of 01/02/2026)</h3>
+        <p><strong>WBC:</strong> 7.2 | <strong>Hgb:</strong> 15.3 | <strong>Platelets:</strong> 203 |
+            <strong>ANC:</strong> 4.1</p>
+        <p><strong>Baseline Free Kappa:</strong> 655.69 mg/L (target: ≥50% reduction by Week 4)</p>
+    </div>
+
+    <div class="section">
+        <h2>Questions About Treatment Response</h2>
+        <ul class="checklist">
+            <li>What do my Week 4 Free Kappa results show?</li>
+            <li>Am I achieving the expected 50%+ reduction?</li>
+            <li>When will we add the full D-RVd quadruplet (Lenalidomide, Bortezomib)?</li>
+            <li>What is the timeline for my first MRD test?</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Questions About Side Effects</h2>
+        <ul class="checklist">
+            <li>Should I be concerned about [symptom]?</li>
+            <li>What signs of neuropathy should I watch for with Bortezomib?</li>
+            <li>Are there supplements I should take or avoid?</li>
+            <li>How do I manage fatigue?</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Questions About High-Risk Cytogenetics</h2>
+        <ul class="checklist">
+            <li>How are my 1q21 gain and TP53 abnormality affecting treatment decisions?</li>
+            <li>Should I get a second opinion at a myeloma center of excellence?</li>
+            <li>Am I a candidate for CAR-T if needed later?</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Practical Questions</h2>
+        <ul class="checklist">
+            <li>What activities should I avoid?</li>
+            <li>Are there clinical trials I should consider?</li>
+            <li>When can I travel safely?</li>
+            <li>Should I get additional vaccines?</li>
+        </ul>
+    </div>
+
+    <div class="note">
+        <strong>💡 Tip:</strong> Write down questions as you think of them before your appointment.
+        Bring this printed checklist and take notes during your visit.
+    </div>
+
+    <hr>
+    <p style="font-size: 12px; color: #6b7280;">
+        Last Updated: January 6, 2026 |
+        <a href="index.html">Back to Portal</a>
+    </p>
+</body>
+
+</html>
