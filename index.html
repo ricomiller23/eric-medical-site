@@ -900,9 +900,9 @@
                     <i class="fas fa-check-circle text-3xl text-green-600"></i>
                     <span class="text-sm text-green-600 font-semibold">EXCELLENT</span>
                 </div>
-                <h3 class="text-lg font-bold mb-1">Day 5 Response</h3>
-                <p class="text-sm text-gray-600">WBC: 9.4 ✓</p>
-                <p class="text-sm text-gray-600">Hgb: 16.4 ✓</p>
+                <h3 class="text-lg font-bold mb-1">Week 2 Labs</h3>
+                <p class="text-sm text-gray-600">WBC: 7.2 ✓</p>
+                <p class="text-sm text-gray-600">Hgb: 15.3 ✓</p>
             </div>
             
             <div class="card p-6 stat-card">
@@ -976,6 +976,10 @@
             <h3 class="text-2xl font-bold mb-6">Medical Timeline</h3>
             <div class="space-y-4">
                 <div class="timeline-item">
+                    <p class="font-semibold">January 2, 2026</p>
+                    <p class="text-gray-600">Week 2 CBC Results: All values normal, continued excellent response ✓</p>
+                </div>
+                <div class="timeline-item">
                     <p class="font-semibold">December 26, 2025</p>
                     <p class="text-gray-600">Day 5 CBC Results: Excellent Response ✓</p>
                 </div>
@@ -1010,6 +1014,7 @@
                 <button class="tab-button" onclick="switchTab('fish')">FISH Panel</button>
                 <button class="tab-button" onclick="switchTab('baseline-labs')">Baseline Labs</button>
                 <button class="tab-button" onclick="switchTab('day5')">Day-5 Response</button>
+                <button class="tab-button" onclick="switchTab('week2')">Week 2 Labs</button>
             </div>
             
             <!-- Bone Marrow Tab -->
@@ -1496,6 +1501,149 @@
                     <p>Your excellent Day-5 response with preserved blood counts indicates that your myeloma cells are sensitive to Daratumumab and your bone marrow has strong reserve capacity. This bodes well for tolerating the planned D-RVd quadruplet therapy and achieving deep responses including potential MRD-negativity.</p>
                 </div>
             </div>
+            
+
+            <!-- Week 2 Labs Tab -->
+            <div id="week2" class="tab-content p-6">
+                <h3 class="text-2xl font-bold mb-4">Week 2 Post-Daratumumab Labs</h3>
+                <p class="text-sm text-gray-600 mb-4">Collection: 01/02/2026 12:54 PM | Lab: Sonora Quest Laboratories</p>
+                
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 mb-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-check-circle text-4xl text-green-600 mr-4"></i>
+                        <div>
+                            <h4 class="font-bold text-2xl text-green-700">✅ CONTINUED EXCELLENT RESPONSE</h4>
+                            <p class="text-green-700">All blood counts remain within normal range - no myelosuppression at Week 2</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <h4 class="font-bold text-lg mb-3">CBC With Differential - Week 2</h4>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Parameter</th>
+                                    <th>Value</th>
+                                    <th>Reference</th>
+                                    <th>Status</th>
+                                    <th>Trend</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="bg-green-50">
+                                    <td>WBC</td>
+                                    <td><strong>7.2 K/μL</strong></td>
+                                    <td>4.0-11.0</td>
+                                    <td><span class="text-green-600 font-bold">✅ Normal</span></td>
+                                    <td><span class="text-gray-500">↓ from 9.4</span></td>
+                                </tr>
+                                <tr class="bg-green-50">
+                                    <td>Hemoglobin</td>
+                                    <td><strong>15.3 g/dL</strong></td>
+                                    <td>13.5-17.0</td>
+                                    <td><span class="text-green-600 font-bold">✅ Normal</span></td>
+                                    <td><span class="text-gray-500">↓ from 16.4</span></td>
+                                </tr>
+                                <tr class="bg-green-50">
+                                    <td>Platelets</td>
+                                    <td><strong>203 K/μL</strong></td>
+                                    <td>130-450</td>
+                                    <td><span class="text-green-600 font-bold">✅ Normal</span></td>
+                                    <td><span class="text-gray-500">↓ from 293</span></td>
+                                </tr>
+                                <tr class="bg-green-50">
+                                    <td>ANC (Neutrophils)</td>
+                                    <td><strong>4.1 K/μL</strong></td>
+                                    <td>1.5-7.8</td>
+                                    <td><span class="text-green-600 font-bold">✅ Normal</span></td>
+                                    <td><span class="text-gray-500">↓ from 5.3</span></td>
+                                </tr>
+                                <tr class="bg-green-50">
+                                    <td>ALC (Lymphocytes)</td>
+                                    <td><strong>2.3 K/μL</strong></td>
+                                    <td>0.9-3.9</td>
+                                    <td><span class="text-green-600 font-bold">✅ Normal</span></td>
+                                    <td><span class="text-gray-500">↓ from 3.1</span></td>
+                                </tr>
+                                <tr>
+                                    <td>RBC</td>
+                                    <td>5.06 M/μL</td>
+                                    <td>4.30-6.00</td>
+                                    <td><span class="text-green-600">✅ Normal</span></td>
+                                    <td>—</td>
+                                </tr>
+                                <tr>
+                                    <td>Hematocrit</td>
+                                    <td>45.5%</td>
+                                    <td>40.0-53.0</td>
+                                    <td><span class="text-green-600">✅ Normal</span></td>
+                                    <td><span class="text-gray-500">↓ from 46.4</span></td>
+                                </tr>
+                                <tr>
+                                    <td>MCV</td>
+                                    <td>89.9 fL</td>
+                                    <td>78.0-100.0</td>
+                                    <td><span class="text-green-600">✅ Normal</span></td>
+                                    <td>—</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="card p-6" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: white;">
+                        <h4 class="font-bold text-xl mb-4">Clinical Interpretation</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-2 mt-1"></i>
+                                <span>All counts remain within normal limits</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-2 mt-1"></i>
+                                <span>Mild decreases are expected and within range</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-2 mt-1"></i>
+                                <span>No neutropenia, anemia, or thrombocytopenia</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle mr-2 mt-1"></i>
+                                <span>Immune function preserved (ALC 2.3)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card p-6" style="background: linear-gradient(135deg, #3B82F6 0%, #1E40AF 100%); color: white;">
+                        <h4 class="font-bold text-xl mb-4">Next Steps</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="font-semibold mb-1">Week 4 Labs (Due: January 18, 2026)</p>
+                                <ul class="text-sm space-y-1 ml-4">
+                                    <li>• Free Kappa, M-spike, UPEP</li>
+                                    <li>• CBC, CMP</li>
+                                    <li>• Target: ≥50% FLC reduction</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold mb-1">Continue Monitoring</p>
+                                <ul class="text-sm space-y-1 ml-4">
+                                    <li>• Report any fever, bleeding, fatigue</li>
+                                    <li>• Stay hydrated</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                    <h4 class="font-bold mb-2">Summary:</h4>
+                    <p>Your Week 2 labs show continued excellent tolerance of Daratumumab. All counts remain solidly in normal range with no concerning drops. This is a very positive sign that your bone marrow is handling treatment well, which bodes well for adding the full D-RVd quadruplet regimen.</p>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -2228,7 +2376,7 @@
         </div>
         <div class="border-t border-gray-700 mt-6 pt-6 text-center">
             <p class="text-sm">© 2026 Eric J. Miller Medical Portal | Private & Secure</p>
-            <p class="text-xs mt-2">Last Updated: 01 Jan 2026 | Next Review: Week 4 Labs</p>
+            <p class="text-xs mt-2">Last Updated: 06 Jan 2026 | Next Review: Week 4 Labs</p>
         </div>
     </div>
 </footer>
